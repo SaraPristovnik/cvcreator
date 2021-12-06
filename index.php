@@ -2,6 +2,28 @@
 
 use Controllers\Users;
 
-require_once __DIR__ . '/start.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/environment.php';
+require_once __DIR__ . '/session.php';
+require_once __DIR__ . '/route.php';
 
-// $user = Users::createUser('sara@gmail.com', 'asdf');
+if (is_null($component))
+    header('Location: /404.html?error=ComponentNotSet');
+
+/* Load controllers */
+
+try {
+    require_once __DIR__ . "/controller/Header.php";
+    require_once __DIR__ . "/controller/{$component}.php";
+    require_once __DIR__ . "/controller/Footer.php";
+} catch (\Throwable $e) {
+    die(header("Location: /404.html?error=OpeningFileFailedOnLine{$e->getLine()}"));
+}
+
+/* Load Views */
+
+include_once __DIR__ . "/view/Header.php";
+include_once __DIR__ . "/view/{$component}.php";
+include_once __DIR__ . "/view/Footer.php";
+
+// $user = Users::createUser('franc@gmail.com', 'asdf');
