@@ -1,0 +1,16 @@
+{
+    "name": "sarapristovnik/cvcreator",
+    "type": "project",
+    "require": {
+        "vlucas/phpdotenv": "^5.3",
+        "illuminate/database": "^8.68",
+        "spatie/ray": "^1.30",
+        "robmorgan/phinx": "^0.12.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Controllers\\": "controller/",
+            "Models\\": "model/"
+        }
+    }
+}
