@@ -1,6 +1,6 @@
 <?php
 
-use Controllers\Users;
+use Models\Database;
 
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/environment.php';
@@ -9,6 +9,10 @@ require_once __DIR__ . '/route.php';
 
 if (is_null($component))
     header('Location: /404.html?error=ComponentNotSet');
+
+/* Initialize database */
+
+new Database();
 
 /* Load controllers */
 
@@ -25,5 +29,3 @@ try {
 include_once __DIR__ . "/view/Header.php";
 include_once __DIR__ . "/view/{$component}.php";
 include_once __DIR__ . "/view/Footer.php";
-
-// $user = Users::createUser('franc@gmail.com', 'asdf');
