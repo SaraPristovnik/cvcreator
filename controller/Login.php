@@ -19,8 +19,7 @@ if (!empty($_POST)) {
         die(header('Location: /?path=Profile'));
     }
 
-    if (null === Users::findByEmail($userEmail))
-        $error['message'] = 'User not found. Do you want to create <a href="/?path=Register">a new account</a>?';
-    else
-        $error['message'] = 'Wrong password.';
+    $error['message'] = null === Users::findByEmail($userEmail)
+        ? 'User not found. Do you want to create <a href="/?path=Register">a new account</a>?'
+        : 'Wrong password.';
 }

@@ -22,6 +22,6 @@ if (!empty($_POST)) {
             'password' => $userPassword,
         ]);
         $_SESSION['userId'] = $user->id;
-        die(header('Location: /?path=Profile'));
+        die(header('Location: /?path=ProfileEdit'));
     }
 }

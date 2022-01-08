@@ -1,3 +1,4 @@
+<?php include_once __DIR__ . '/ProfileSidebar.php' ?>
 <main class="container">
     <form action="/?path=Profile" method="post">
         <div class="mb-3">
