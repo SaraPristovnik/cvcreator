@@ -3,13 +3,16 @@
 if (!isset($_GET['path']))
     die(header('Location: /?path=Login'));
 
-switch ($_GET['path']) {
-    case 'Logout':
-    case 'Login':
-    case 'Register':
-    case 'Profile':
-        $component = $_GET['path'];
-        break;
-    default:
-        $component = null;
-}
+$allowedRoutes = [
+    'Login',
+    'Logout',
+    'MyCVs',
+    'Profile',
+    'ProfileChangePassword',
+    'ProfileEdit',
+    'Register',
+];
+
+$component = in_array($_GET['path'], $allowedRoutes)
+    ? $_GET['path']
+    : null;
