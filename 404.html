@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>404</h1>
     <h2>These aren't the droids you're looking for. </h2>
-    <a href="/">Home</a>
+    <code>
+        <p id="error">Error: </p>
+        <p id="file">File: </p>
+        <p id="line">Line: </p>
+    </code>
+    <a href="/" style="display: block; margin-top: 3rem">Home</a>
+    <script>
+        const urlParams = (param = null) => {
+            const params = new URLSearchParams(window.location.search)
+            return param !== null
+                ? params.get(param)
+                : Object.fromEntries(params.entries())
+        }
+
+        const errorBlock = document.getElementById("error")
+        const fileBlock = document.getElementById("file")
+        const lineBlock = document.getElementById("line")
+
+        errorBlock.innerHTML += urlParams('e')
+        fileBlock.innerHTML += urlParams('f')
+        lineBlock.innerHTML += urlParams('l')
+    </script>
 </body>
+
 </html>
