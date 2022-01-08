@@ -2,13 +2,15 @@
 
 use Models\Database;
 
-require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/environment.php';
-require_once __DIR__ . '/session.php';
-require_once __DIR__ . '/route.php';
+require_once __DIR__ . '/vendor/autoload.php'; // composer packages
+require_once __DIR__ . '/environment.php'; // .env
+require_once __DIR__ . '/session.php'; // session
+require_once __DIR__ . '/route.php'; // ?path
+
+$currentFile = basename(__FILE__);
 
 if (is_null($component))
-    header('Location: /404.html?error=ComponentNotSet');
+    header("Location: /404.html?e=Component not set&f={$currentFile}&l=" . __LINE__);
 
 /* Initialize database */
 
@@ -21,7 +23,7 @@ try {
     require_once __DIR__ . "/controller/{$component}.php";
     require_once __DIR__ . "/controller/Footer.php";
 } catch (\Throwable $e) {
-    die(header("Location: /404.html?error=OpeningFileFailedOnLine{$e->getLine()}"));
+    die(header("Location: /404.html?e=Opening file failed&f={$e->getFile()} ({$currentFile})&l={$e->getLine()}"));
 }
 
 /* Load Views */
