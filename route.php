@@ -6,8 +6,8 @@ if (!isset($_GET['path']))
 $allowedRoutes = [
     'Login',
     'Logout',
+    'MyCV',
     'MyCVs',
-    'Profile',
     'ProfileChangePassword',
     'ProfileEdit',
     'Register',

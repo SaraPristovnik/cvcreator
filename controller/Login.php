@@ -3,7 +3,7 @@
 use Controllers\Users;
 
 if (isset($_SESSION['userId']))
-    die(header('Location: /?path=Profile'));
+    die(header('Location: /?path=ProfileEdit'));
 
 $error = [];
 
@@ -16,7 +16,7 @@ if (!empty($_POST)) {
 
     if (isset($user)) {
         $_SESSION['userId'] = $user->id;
-        die(header('Location: /?path=Profile'));
+        die(header('Location: /?path=ProfileEdit'));
     }
 
     $error['message'] = null === Users::findByEmail($userEmail)
