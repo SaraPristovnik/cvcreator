@@ -10,6 +10,7 @@
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" value="<?= $_POST['password'] ?? '' ?>">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/?path=Register">Register</a>
     </form>
     <?php if (isset($error['message'])) : ?>
         <div class="alert alert-info mt-3">
