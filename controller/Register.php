@@ -7,8 +7,8 @@ $error = [];
 
 if (!empty($_POST)) {
 
-    $userEmail = $_POST['email'] ?? '';
-    $userPassword = $_POST['password'] ?? '';
+    $userEmail = $_POST['email'];
+    $userPassword = $_POST['password'];
 
     if (null !== Users::findByEmail($userEmail))
         $error['message'] = 'User already exists. Do you want to <a href="/?path=Login">login</a>?';

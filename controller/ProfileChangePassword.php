@@ -12,7 +12,7 @@ $success = null;
 
 if (!empty($_POST)) {
 
-    $isOldPasswordCorrect = isset($_POST['password']) && ($user->password === $_POST['password']);
+    $isOldPasswordCorrect = isset($_POST['password']) && ($_POST['password'] === $user->password);
 
     if (!$isOldPasswordCorrect) {
         $error = 'Old password incorrect';

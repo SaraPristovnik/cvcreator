@@ -13,7 +13,7 @@ if (!isset($_SESSION['userId']))
     die(header('Location: /?path=Login'));
 
 if (isset($_GET['del'])) {
-    $cv = CVModule::where('id', $_GET['del'] ?? 0)
+    $cv = CVModule::where('id', $_GET['del'])
         ->first();
     $cv->forceDelete();
     die(header('Location: /?path=MyCVs'));
