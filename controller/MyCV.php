@@ -31,11 +31,12 @@ if (!empty($_POST)) {
     }
 
     if (isset($_POST['phoneSelect'])) {
+        // ce je cvm_phone_ids prazen string (''), potem prazen array ([]), sicer ...
         $tempArray = $cv->cvm_phone_ids === ''
             ? []
-            : explode(',', $cv->cvm_phone_ids);
-        $tempArray[] = intval($_POST['phoneSelect']);
-        $cv->cvm_phone_ids = implode(',', array_unique($tempArray));
+            : explode(',', $cv->cvm_phone_ids); // ...'1,2' => [1, 2]
+        $tempArray[] = intval($_POST['phoneSelect']); // => [1, 2, 3]
+        $cv->cvm_phone_ids = implode(',', array_unique($tempArray)); // => '1,2,3'
     }
 
     if (isset($_POST['emailSelect'])) {
