@@ -1,7 +1,6 @@
 <?php include_once __DIR__ . '/ProfileSidebar.php' ?>
 <main class="container">
-    <form action="/?path=ProfileChangePassword
-    " method="post">
+    <form action="/?path=ProfileChangePassword" method="post">
         <div class="mb-3">
             <label for="password" class="form-label">Old password</label>
             <input type="password" id="password" name="password" class="form-control" autocomplete="current-password" placeholder="Password" value="<?= $_POST['password'] ?? '' ?>">

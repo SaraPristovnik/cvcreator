@@ -3,7 +3,7 @@
     <form action="/?path=ProfileEdit" method="post">
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
-            <input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" placeholder="Email address" value="<?= $user->email ?>">
+            <input type="email" id="email" name="email" class="form-control" readonly aria-describedby="emailHelp" placeholder="Email address" value="<?= $user->email ?>">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
